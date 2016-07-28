@@ -13,7 +13,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var articleImg: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
+    var a = ["1","2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,21 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBAction func postTapped(sender: AnyObject) {
     }
+    
+    
+    // MARK: - TableView
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return a.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostCardTableViewCell
+        cell.contentLabel.text = a[indexPath.row]
+        return cell
+    }
+    
+    
     /*
     // MARK: - Navigation
 
