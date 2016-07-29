@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUk-LQ-jen">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUk-LQ-jen">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -115,7 +115,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.60352862640000005" green="0.68987408790000004" blue="0.80767342929999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wdo-I9-v5a" firstAttribute="top" secondItem="iKn-Z5-sgg" secondAttribute="bottom" constant="8" id="DDy-6T-NHY"/>
                             <constraint firstItem="iKn-Z5-sgg" firstAttribute="top" secondItem="NJZ-Ya-d9Y" secondAttribute="bottom" id="EKN-qB-Xuo"/>
@@ -303,7 +303,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginTapped:" destination="QUk-LQ-jen" eventType="touchUpInside" id="WmU-46-rwG"/>
                                     <segue destination="pmf-Uc-AIW" kind="presentation" identifier="Create" id="2Bz-kd-Qeb"/>
                                 </connections>
                             </button>
@@ -411,6 +410,13 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-xS-KgQ">
+                                <rect key="frame" x="200" y="414" width="201" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Cme-Ta-MXK"/>
+                                    <constraint firstAttribute="width" constant="201" id="dhQ-lx-ith"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cX-CH-R1u" userLabel="UploadPhoto">
                                 <rect key="frame" x="265" y="422" width="70" height="70"/>
                                 <constraints>
@@ -431,7 +437,7 @@
                                 </state>
                                 <connections>
                                     <action selector="DoneTapped:" destination="pmf-Uc-AIW" eventType="touchUpInside" id="IJf-Zz-mcv"/>
-                                    <action selector="loginTapped:" destination="pmf-Uc-AIW" eventType="touchUpInside" id="9We-xe-acK"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="LoginWithCreate" id="kyY-4T-97z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -443,12 +449,15 @@
                             <constraint firstItem="0YA-aD-lE0" firstAttribute="top" secondItem="h9h-dZ-J1Q" secondAttribute="bottom" constant="20" id="7pc-1B-Dbd"/>
                             <constraint firstItem="zQd-eu-71O" firstAttribute="centerX" secondItem="yyb-Rs-edb" secondAttribute="centerX" id="CY6-f8-e0T"/>
                             <constraint firstItem="zQd-eu-71O" firstAttribute="top" secondItem="aYq-wX-0MK" secondAttribute="bottom" constant="21" id="KFm-E6-LFu"/>
+                            <constraint firstItem="OLn-xS-KgQ" firstAttribute="centerX" secondItem="yyb-Rs-edb" secondAttribute="centerX" id="LJw-JA-y0n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="15r-A6-3sj" secondAttribute="trailing" id="M2O-Ef-dym"/>
+                            <constraint firstItem="OLn-xS-KgQ" firstAttribute="top" secondItem="0YA-aD-lE0" secondAttribute="bottom" constant="8" id="Mn2-1t-Ckh"/>
                             <constraint firstItem="15r-A6-3sj" firstAttribute="top" secondItem="0cX-CH-R1u" secondAttribute="bottom" constant="20" id="NgK-JW-9rq"/>
                             <constraint firstItem="15r-A6-3sj" firstAttribute="top" secondItem="0YA-aD-lE0" secondAttribute="bottom" constant="20" id="QFL-vc-69z"/>
                             <constraint firstItem="h9h-dZ-J1Q" firstAttribute="height" secondItem="zQd-eu-71O" secondAttribute="height" id="TbU-c8-C1w"/>
                             <constraint firstItem="h9h-dZ-J1Q" firstAttribute="width" secondItem="0YA-aD-lE0" secondAttribute="width" id="Tq0-Tc-HkH"/>
                             <constraint firstItem="aYq-wX-0MK" firstAttribute="centerX" secondItem="yyb-Rs-edb" secondAttribute="centerX" id="X4D-3c-pTG"/>
+                            <constraint firstItem="15r-A6-3sj" firstAttribute="top" secondItem="OLn-xS-KgQ" secondAttribute="bottom" constant="8" id="YNE-4B-voe"/>
                             <constraint firstItem="aYq-wX-0MK" firstAttribute="top" secondItem="0mK-t7-MJ5" secondAttribute="bottom" constant="8" id="YgX-ff-Hhz"/>
                             <constraint firstItem="15r-A6-3sj" firstAttribute="top" secondItem="h9h-dZ-J1Q" secondAttribute="bottom" constant="20" id="e3p-es-VyT"/>
                             <constraint firstItem="zQd-eu-71O" firstAttribute="leading" secondItem="yyb-Rs-edb" secondAttribute="leadingMargin" id="eC6-6r-4cC"/>
@@ -469,6 +478,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="XvZ-rV-e6O" id="9SB-bL-TAB"/>
                         <outlet property="passwordTextField" destination="OIk-u0-Jdo" id="8XV-7i-ter"/>
+                        <outlet property="profileImg" destination="OLn-xS-KgQ" id="9tk-cD-d0w"/>
+                        <outlet property="uploadButton" destination="0cX-CH-R1u" id="KyR-x9-9do"/>
                         <outlet property="usernameTextField" destination="x6o-3E-rBS" id="4ff-44-hVY"/>
                     </connections>
                 </viewController>
@@ -484,4 +495,7 @@
         <image name="post" width="256" height="256"/>
         <image name="unfilled-haert" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qvZ-38-La4"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,9 +10,6 @@ import UIKit
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var articleImg: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     var a = ["1","2"]

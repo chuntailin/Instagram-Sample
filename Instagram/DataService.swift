@@ -17,7 +17,8 @@ class DataService {
     private var _USER_REF: FIRDatabaseReference
     private var _POST_REF: FIRDatabaseReference
     private var _BASE_STORAGE_REF: FIRStorageReference
-    private var _IMG_REF: FIRStorageReference
+    private var _PROFILE_IMG_REF: FIRStorageReference
+    private var _POST_IMG_REF: FIRStorageReference
     
     var BASE_REF: FIRDatabaseReference {
         return _BASE_REF
@@ -35,8 +36,12 @@ class DataService {
         return _BASE_STORAGE_REF
     }
     
-    var IMG_REF: FIRStorageReference {
-        return _IMG_REF
+    var PROFILE_IMG_REF: FIRStorageReference {
+        return _PROFILE_IMG_REF
+    }
+    
+    var POST_IMG_REF: FIRStorageReference {
+        return _POST_IMG_REF
     }
     
     init() {
@@ -44,7 +49,8 @@ class DataService {
         self._USER_REF = _BASE_REF.child("users")
         self._POST_REF = _BASE_REF.child("posts")
         self._BASE_STORAGE_REF = FIRStorage.storage().reference()
-        self._IMG_REF = _BASE_STORAGE_REF.child("images")
+        self._PROFILE_IMG_REF = _BASE_STORAGE_REF.child("profileImages")
+        self._POST_IMG_REF = _BASE_STORAGE_REF.child("postImages")
     }
     
     func createUser(uid: String, user: [String:String]){

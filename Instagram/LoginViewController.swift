@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -26,8 +27,29 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginTapped(sender: AnyObject) {
         
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
+        if email != "" && password != "" {
+            FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
+                if error != nil {
+                    self.presentAlertView("Oops!", message: "Have Something Trouble To Sign In")
+                } else {
+                    NSUserDefaults.standardUserDefaults().setObject(user?.uid, forKey: "uid")
+                    self.performSegueWithIdentifier("Login", sender: nil)
+                }
+            })
+        } else {
+            self.presentAlertView("Oops!", message: "Please Enter Email and Password")
+        }
     }
 
+    func presentAlertView(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertVC.addAction(action)
+        self.presentViewController(alertVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
