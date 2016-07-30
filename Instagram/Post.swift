@@ -45,7 +45,7 @@ class Post {
     init(key: String, dictionary: [String:AnyObject]) {
         self._postKey = key
         
-        if let profileImg = dictionary["profileImg"] as? String {
+        if let profileImg = dictionary["profileImgURL"] as? String {
             self._profileImgURL = profileImg
         }
         
@@ -57,7 +57,7 @@ class Post {
             self._description = content
         }
         
-        if let articleImg = dictionary["acticleImg"] as? String {
+        if let articleImg = dictionary["acticleImgURL"] as? String {
             self._articleImgURL = articleImg
         }
         

@@ -100,9 +100,10 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
     func uploadImageToFirebase(image: UIImage, completion:(URL: String) -> Void) {
         
         let imgData = UIImageJPEGRepresentation(image, 0.2)
+        let currentTime = "\(NSDate.timeIntervalSinceReferenceDate())"
         var imgURL: String?
         
-        DataService.dataservice.PROFILE_IMG_REF.putData(imgData!, metadata: nil) { (metaData, error) in
+        DataService.dataservice.PROFILE_IMG_REF.child(currentTime).putData(imgData!, metadata: nil) { (metaData, error) in
             if error != nil {
                 self.presentErrorView("Oop!", message: "Have Somthing Trouble To Upload Photo")
             } else {
@@ -123,16 +124,4 @@ class CreateAccountViewController: UIViewController, UINavigationControllerDeleg
         self.presentViewController(alertVC, animated: true, completion: nil)
         
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

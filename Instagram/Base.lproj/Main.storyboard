@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUk-LQ-jen">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QUk-LQ-jen">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FeedViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,7 +36,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="422.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q87-hL-Zc0">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filled-heart" translatesAutoresizingMaskIntoConstraints="NO" id="Q87-hL-Zc0">
                                                     <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="6Wp-DN-L7i"/>
@@ -74,6 +74,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.68554373558308646" green="1" blue="0.84734321492885512" alpha="0.15376900337837843" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Q87-hL-Zc0" secondAttribute="leading" id="05L-h4-gH2"/>
                                                 <constraint firstItem="Q5d-oh-cmJ" firstAttribute="top" secondItem="OA5-z6-1U3" secondAttribute="bottom" constant="8" id="1AT-0v-JQp"/>
@@ -187,7 +188,7 @@
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="寫點描述吧....." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6i-Sf-9Ji">
                                 <rect key="frame" x="15" y="98" width="565" height="152"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.88921155429999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -198,16 +199,24 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postButtonTapped:" destination="bLv-8B-x9u" eventType="touchUpInside" id="uBp-hs-xql"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="kGz-LR-L5q">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="album" translatesAutoresizingMaskIntoConstraints="NO" id="kGz-LR-L5q">
                                 <rect key="frame" x="127" y="258" width="347" height="288"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="347" id="Xc4-7Z-yPz"/>
                                     <constraint firstAttribute="height" constant="288" id="aBk-w9-TFp"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5Yh-6A-APf" appends="YES" id="qf5-cv-Chm"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6HN-MN-VS8" firstAttribute="leading" secondItem="jXR-d8-m98" secondAttribute="leadingMargin" constant="-20" id="0kh-Rj-RJw"/>
                             <constraint firstItem="kGz-LR-L5q" firstAttribute="top" secondItem="j6i-Sf-9Ji" secondAttribute="bottom" constant="8" id="AMj-in-FmI"/>
@@ -223,8 +232,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hYs-Yx-0zY" secondAttribute="trailing" constant="-20" id="yAB-eH-l8T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="articleImage" destination="kGz-LR-L5q" id="f4o-eI-OEo"/>
+                        <outlet property="contentTextView" destination="j6i-Sf-9Ji" id="BOy-o3-Lrj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwL-zP-DEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5Yh-6A-APf">
+                    <connections>
+                        <action selector="uploadImageTapGesture:" destination="bLv-8B-x9u" id="5Nj-Es-qoI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="911" y="-355"/>
         </scene>
@@ -291,7 +309,7 @@
                                         <color key="backgroundColor" red="0.85475294499999999" green="0.84362680300000004" blue="0.82473531010000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -410,7 +428,7 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-xS-KgQ">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-xS-KgQ">
                                 <rect key="frame" x="200" y="414" width="201" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Cme-Ta-MXK"/>
@@ -490,6 +508,7 @@
     </scenes>
     <resources>
         <image name="album" width="512" height="512"/>
+        <image name="filled-heart" width="256" height="256"/>
         <image name="instagram-logo" width="548" height="315"/>
         <image name="instagram-title" width="420" height="160"/>
         <image name="post" width="256" height="256"/>

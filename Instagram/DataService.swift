@@ -28,9 +28,16 @@ class DataService {
         return _USER_REF
     }
     
-    var POSR_REF: FIRDatabaseReference {
+    var POST_REF: FIRDatabaseReference {
         return _POST_REF
     }
+    
+    var CURRENT_USER: FIRDatabaseReference {
+        let uid = NSUserDefaults.standardUserDefaults().objectForKey("uid") as! String
+        let currentUser = _USER_REF.child(uid)
+        return currentUser
+    }
+    
     
     var BASE_STORAGE_REF: FIRStorageReference {
         return _BASE_STORAGE_REF
@@ -58,7 +65,7 @@ class DataService {
     }
 
     func createPost(post: [String:AnyObject]) {
-        let newPostNode = POSR_REF.childByAutoId()
+        let newPostNode = POST_REF.childByAutoId()
         newPostNode.updateChildValues(post)
     }
 }
